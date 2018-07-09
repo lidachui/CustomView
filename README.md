@@ -16,5 +16,8 @@
 
 自定义蒙层引导
 
+## CustomCommonDialog
 
+自定义Dialog，自定义contentView
+MessageDialog直接调用使用
 
