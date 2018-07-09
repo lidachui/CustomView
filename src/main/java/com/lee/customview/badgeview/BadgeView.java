@@ -21,6 +21,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TabWidget;
 
+import com.lee.customview.utils.DesityUtil;
+
 /**
  * Created by LeeJing on 2018/2/7.
  */
@@ -85,11 +87,11 @@ public class BadgeView extends android.support.v7.widget.AppCompatTextView {
 		this.mTabIndex = tabIndex;
 		// apply defaults
 		mBadgePosition = DEFAULT_POSITION; //位置
-		mBadgeMarginH = dipToPixels(DEFAULT_MARGIN_DIP); //marginH
+		mBadgeMarginH = DesityUtil.dip2px(context, DEFAULT_MARGIN_DIP); //marginH
 		mBadgeMarginV = mBadgeMarginH; //marginV
 		mBadgeColor = DEFAULT_BADGE_COLOR; //back ground color
 		setTypeface(Typeface.DEFAULT_BOLD); //text typeface
-		int paddingPixels = dipToPixels(DEFAULT_LR_PADDING_DIP);
+		int paddingPixels = DesityUtil.dip2px(context, DEFAULT_LR_PADDING_DIP);
 		setPadding(paddingPixels, 0, paddingPixels, 0);
 		setTextColor(DEFAULT_TEXT_COLOR);// text color
 		//animation
@@ -235,11 +237,5 @@ public class BadgeView extends android.support.v7.widget.AppCompatTextView {
 	
 	public void setBadgeColor(int badgeColor) {
 		mBadgeColor = badgeColor;
-	}
-	
-	private int dipToPixels(int dip) {
-		Resources r = getResources();
-		float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, r.getDisplayMetrics());
-		return (int) px;
 	}
 }
